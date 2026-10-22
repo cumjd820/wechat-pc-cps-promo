@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="微信小游戏 PC 畅玩精选合集 — 第三方推广落地页" />
+  <title>微信小游戏精选 · PC 畅玩</title>
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>小游戏精选</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#games">游戏列表</a>
+        <a href="#guide">PC / 手机指引</a>
+        <a href="legal.html">说明</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">精选合集 · 非官方</div>
+        <h1 id="site-title">微信小游戏精选 · PC 畅玩</h1>
+        <p class="lead" id="site-lead">精选可在微信 PC 版畅玩的小游戏，手机扫码或电脑搜索即可开始</p>
+      </div>
+    </section>
+
+    <div class="filters" id="filters" aria-label="分类筛选"></div>
+
+    <section id="games" class="game-grid" aria-label="精选游戏"></section>
+    <!-- 游戏卡片由 JS 渲染；新用户分成% 仅存 data-share-*，不对 C 端展示 -->
+
+    
+    <section class="guide-section" id="list-open" style="margin-top:1rem">
+      <h2>打开游戏合集</h2>
+      <p class="lead" style="margin:0.5rem 0 1rem">一键打开精选游戏合集（含本站 Top20）。</p>
+      <p>
+        <a class="btn btn-primary" id="list-promo-cta" href="#" rel="noopener noreferrer">打开游戏列表</a>
+      </p>
+      <div class="qr-block" style="margin-top:1rem">
+        <div class="qr-frame">
+          <img src="assets/img/qr-list-promo.png" alt="游戏列表二维码" width="120" height="120" />
+        </div>
+        <p class="qr-note">手机微信扫一扫，或点上方按钮打开。列表含本站 Top20。</p>
+      </div>
+    </section>
+
+    <section class="guide-section" id="guide">
+      <h2>如何开始畅玩</h2>
+      <ul class="steps">
+        <li>
+          <strong>电脑端</strong>
+          打开微信 PC 客户端 → 顶部搜索游戏名 → 进入小游戏畅玩。未安装可前往
+          <a href="https://pc.weixin.qq.com/" target="_blank" rel="noopener noreferrer">微信 PC 官网</a>下载。
+        </li>
+        <li>
+          <strong>手机端</strong>
+          进入单游落地页，用微信扫码（接入服务商小程序码 / URL Link 后生效），或复制游戏名到微信搜索。
+        </li>
+        <li>
+          <strong>关于归因</strong>
+          一键唤起接入后全局生效；当前唤起能力：待配置。
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="disclaimer" id="footer-disclaimer">第三方推广落地页，游戏由微信小游戏提供，非腾讯官方</p>
+      <p id="footer-contact">合作 / 投诉请联系服务商（待填写）</p>
+      <p>本站不内嵌小游戏运行时，玩法均在微信客户端内进行。</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/games-data.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    PromoApp.fillFooter();
+    PromoApp.renderHome();
+    (function () {
+      var url = (window.SITE_CONFIG && window.SITE_CONFIG.LIST_PROMO_URL) || '';
+      var a = document.getElementById('list-promo-cta');
+      if (a && url) {
+        a.href = url;
+        a.target = '_blank';
+      }
+    })();
+  </script>
+</body>
+</html>
